@@ -27,13 +27,14 @@ object StreamProcessingApp {
   }
 
   private def startHttpServer(eventStatsHolder: IEventStatsHolder): Unit = {
-    val server = new Server(8080)
+    val port = 8080
+    val server = new Server(port)
     val root = new WebAppContext()
     root.setResourceBase("src/web")
     root.addServlet(new ServletHolder(new EventStatsServlet(eventStatsHolder)), "/")
     server.setHandler(root)
-
     Log.setLog(new StdErrLog())
+    println(s"starting server on http://localhost:${port}")
     server.start()
   }
 }
