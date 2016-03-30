@@ -12,7 +12,11 @@ import org.eclipse.jetty.webapp.WebAppContext
 object StreamProcessingApp {
 
   def main(args: Array[String]): Unit = {
-    val cmd = "D:\\downloads\\generator-windows-amd64.exe"
+    if (args.length < 1) {
+      println("please specify executable to run.")
+      return
+    }
+    val cmd = args(0)
 
     val dataObservable = new ProcessDataStreamProvider(cmd).getDataStream()
     val eventStream = new EventStreamProvider().fromDataStream(dataObservable)
