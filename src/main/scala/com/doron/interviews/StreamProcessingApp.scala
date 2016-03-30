@@ -2,7 +2,7 @@ package com.doron.interviews
 
 import org.eclipse.jetty.server.Server
 import org.eclipse.jetty.servlet.ServletHolder
-import org.eclipse.jetty.util.log.{StdErrLog, Log}
+import org.eclipse.jetty.util.log.{Log, StdErrLog}
 import org.eclipse.jetty.webapp.WebAppContext
 
 /**
@@ -30,7 +30,7 @@ object StreamProcessingApp {
     val server = new Server(8080)
     val root = new WebAppContext()
     root.setResourceBase("src/web")
-    root.addServlet(new ServletHolder(new EventStatsServlet(eventStatsHolder)),"/")
+    root.addServlet(new ServletHolder(new EventStatsServlet(eventStatsHolder)), "/")
     server.setHandler(root)
 
     Log.setLog(new StdErrLog())

@@ -5,9 +5,9 @@ import rx.lang.scala.Observable
 /**
  * Created by dorony on 28/03/2016.
  */
-class EventProcessor (eventStatsHolder: IEventStatsHolder) {
+class EventProcessor(eventStatsHolder: IEventStatsHolder) {
 
-  def beginProcessing (eventStream: Observable[Event]) = {
+  def beginProcessing(eventStream: Observable[Event]) = {
     eventStream.subscribe(e => processNewEvent(e))
   }
 

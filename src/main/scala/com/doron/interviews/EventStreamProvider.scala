@@ -1,8 +1,9 @@
 package com.doron.interviews
 
-import rx.lang.scala.Observable
-import net.liftweb.json._
 import net.liftweb.json.Serialization.read
+import net.liftweb.json._
+import rx.lang.scala.Observable
+
 import scala.util.Try
 
 /**
